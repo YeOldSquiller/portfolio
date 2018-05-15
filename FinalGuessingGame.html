@@ -1,0 +1,44 @@
+<html>
+<body>
+<a href="guessinggame.html">Back to Guessing Game Page</a>
+<h2>Program 1 V2</h2>
+<!-- Zakariya Abuzir, Aric Kurash, Tyler Brown, Chase Willis, Tyler Dillinder. Updated Last  10/24/17, Program Status: Complete. -->
+Guess a number 1-100. If you're correct you'll get a prize….. Maybe. 
+
+<div id="image"></div>
+
+<br>
+
+<input type="text" id="userInput">
+
+<button onclick="fun();">Guess</button>
+<p id="score">Score: 0</p> <!-- This is the spot that shows your score -->   
+<p id="demo"></p> <!-- Used to get the id when needed -->
+<div id="output"></div> <!-- Gives you a score -->
+
+<script>
+function fun(){ 
+		var score = 0;
+		var randomNumber = Math.floor(Math.random() * 100 + 1); <!-- Gives you a number between 1 - 100 -->
+		console.log(randomNumber);
+		var userInput = document.getElementById("userInput").value; <!-- Gives you the random number that was guessed -->
+		document.getElementById("demo").innerHTML = "The Correct answer was: " + randomNumber; <!-- displaying what the correct answer was -->
+		if(randomNumber == userInput){
+		document.getElementById("output").innerHTML = "You are correct!"; <!-- Is saying that you are correct -->
+		score++;
+		document.getElementById("image").innerHTML = "<img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ksWsfZf7tvlHnAPIS0cgRwV_AQ8eMmBNnYzP5N7w0t5pSNfW'>"; <!-- Displays image when you guess it correct -->
+		}else{
+		document.getElementById("output").innerHTML = "You are incorrect try again man."; <!--  this is saying that you are incorrect , so try again with another guess -->
+		document.getElementById("image").innerHTML = ""; <!-- displays no image if it is incorrect --> 
+		}
+		document.getElementById("score").innerHTML = "Score: " + score;	<!-- Shows your score after you have guessed a number -->
+		if (userInput > randomNumber)
+		document.getElementById("output").innerHTML += "<br><br> You're Too High!"; <!-- displays saying that your guess is to high -->
+		if (userInput < randomNumber)
+		document.getElementById("output").innerHTML += "<br><br> You're Too Low!"; <!-- displays that your guess is too low to the random number -->
+		score++;
+	}
+</script>
+
+</body>
+</html>
